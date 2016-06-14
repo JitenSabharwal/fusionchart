@@ -39,15 +39,29 @@
 	        </nav>
 	    </div>
 		<div class="container my-container" ng-app="myApp" ng-controller="myCtrl" >
-			<div class="stock-rate hidden col-sm-2">
-				<h4>{{current_price}}</h4>
-				<div class="col-sm-12" style="display:-webkit-inline-box;"><div class="crement"></div>{{stock_rate}}</div>
+			<div class="col-sm-2">
+				<div class="stock-rate hidden col-sm-12">
+					<h4>{{current_price}}</h4>
+					<div class="col-sm-12" style="display:-webkit-inline-box;"><div class="crement"></div>{{stock_rate}}</div>
+				</div>
+				<div class="alert-rate hidden col-sm-12">
+					<label>Alert Min</label>
+					<input type="number" ng-model="alert_min" disabled class="form-control">
+
+					<label>Alert Max</label>
+					<input type="number" ng-model="alert_max" disabled class="form-control">
+				</div>
 			</div>
-			<div class="col-sm-10 content" id="chart-container">FusionCharts XT will load here!</div>
+			<!-- This chart will show the data for 5 days -->
 			<div class="col-sm-10 hidden content" id="chart-container1">FusionCharts XT will load here!</div>
+			<!-- This chart will show the data for 1 month -->
 			<div class="col-sm-10 hidden content" id="chart-container2">FusionCharts XT will load here!</div>
+			<!-- This chart will show the data for 5 months -->
 			<div class="col-sm-10 hidden content" id="chart-container3">FusionCharts XT will load here!</div>
+			<!-- This chart will show the data for 1 year -->
 			<div class="col-sm-10 hidden content" id="chart-container4">FusionCharts XT will load here!</div>
+			<!-- This chart will show the real time data  -->
+			<div class="col-sm-10 content" id="chart-container">FusionCharts XT will load here!</div>
 		</div>
 	</body>
 

@@ -57,19 +57,19 @@ function current_setdata()
 	            "alert":
 	            [
 		            {
-		                "minvalue": "10",
-		                "maxvalue": "20",
+		                "minvalue": alert_min,
+		                "maxvalue": open_price,
 		                "action": "callJS",
-		                "param": "showAlert('Huge Fall in Stock Price');"
+		                "param": "showAlert('Fall in Stock Price','danger');"
 		            }
 	            ],
 	            "alert":
 	            [
 		            {
-		                "minvalue": "90",
-		                "maxvalue": "100",
+		                "minvalue": open_price,
+		                "maxvalue": alert_max,
 		                "action": "callJS",
-		                "param": "showAlert('Huge Increase in Stock Price');"
+		                "param": "showAlert('Increase in Stock Price','success');"
 		            }
 	            ]
 	        }
@@ -78,21 +78,23 @@ function current_setdata()
 	        'beforeRender': function(evt, args) {
 	            var controllers = document.createElement('div');
 	            controllers.setAttribute('id', 'tableView');
+	            controllers.setAttribute('class', 'col-sm-offset-2 col-sm-6');
 	            controllers.style.cssText = "";
+	            
 	            //Display container div and write table
 	            args.container.parentNode.insertBefore(controllers, args.container.nextSibling);
 	        },
 	        'rendered': function(evt, args) {
-	            window.showAlert = function(msg) {
+	            window.showAlert = function(msg,css) {
 	                var dispCon = document.getElementById("tableView"),
 	                    str = "",
 	                    tdStyle = "border:1px solid;border-color:#cccccc;width:100%;font-weight: bold;font-size: 14px;padding: 3px;text-align:center",
 	                    tdStyle2 = "border:1px solid;border-color:#cccccc;width:100%;color:#aa0000;font-weight: bold;font-size: 14px;padding: 3px;text-align:center";
 
 	                //Creating the table format
-	                str += '<table cellpadding="1" width="600px" cellspacing="0" style="margin-left:10%;">';
-	                str += '    <tr>';
-	                str += '        <td style="' + tdStyle2 + '">ALERT</td>';
+	                str += '<table cellpadding="1" width="600px" class="table" cellspacing="0">';
+	                str += '    <tr class="' + css + '">';
+	                str += '        <td style="' + tdStyle2 + '" >ALERT</td>';
 	                str += '    </tr>';
 	                str += '    <tr>';
 	                str += '        <td  style="' + tdStyle + '">' + msg + '</td>';
@@ -129,7 +131,7 @@ function current_setdata()
 	                //Feed it to chart.
 	                chartRef.feedData(strData);
 
-	            }, 3000);
+	            }, 80000);
 	        },
 	        'disposed': function(evt, arg) {
 	            clearInterval(evt.sender.chartInterval);

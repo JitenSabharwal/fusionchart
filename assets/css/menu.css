@@ -43,3 +43,9 @@
   height:100px;
   margin-top: 15%;
 }
+.alert-rate
+{
+  box-shadow: 5px 5px 20px grey;
+  height:150px;
+  margin-top: 15%;
+}
