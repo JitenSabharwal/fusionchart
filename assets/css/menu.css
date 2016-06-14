@@ -1,0 +1,45 @@
+.nav-pills li.active 
+{
+  background: transparent;
+  border-bottom: solid;
+  border-width: 3px;
+  border-radius: 0;
+  border-color: #0BB76C;
+  margin-bottom: 0.15em;
+  cursor: pointer;
+  padding-bottom: .5px;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover
+{
+  background-color:transparent;
+  color :#0BB76C; 
+}
+.nav-pills li a
+{
+  color: #212121;
+}
+.collection_nav 
+{
+  border-bottom: 2px solid #ccc;
+  display: block;
+  margin-bottom: 1em;
+  width:100%;
+  background-color: white;
+}
+ .nav-pills 
+{
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: -webkit-box;
+  width:100%;
+}
+.my-container
+{
+  margin-top: 5%;
+}
+.stock-rate
+{
+  box-shadow: 5px 5px 20px grey;
+  height:100px;
+  margin-top: 15%;
+}

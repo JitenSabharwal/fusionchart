@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<title>My first chart using FusionCharts Suite XT</title>
+
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/menu.css">
+
+		<script type="text/javascript" src="/fusioncharts/js/jquery/jquery-2.0.2.min.js"></script>
+		<script src="js/common/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+		<script type="text/javascript" src="js/common/angular_controller.js"></script>
+
+		<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
+		<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/themes/fusioncharts.theme.fint.js?cacheBust=56"></script>
+
+		<script type="text/javascript" src="js/common/today.js"></script>
+		<script type="text/javascript" src="js/common/my_chart.js"></script>
+	</head>
+	<body>
+	    <div class="top_menu">
+		    <nav class="navbar collection_nav navbar-inverse navbar-fixed-top" role="navigation">
+			    <ul class="nav nav-pills" style="display: -webkit-inline-box;text-align:center;" >
+		          <li id="div-button" class="active" style="padding:5px; width:20%">
+		                <a href="#" data-toggle="tab" aria-expanded="true" item ="chart-container" class="chart-container">Current</a>
+		          </li>
+		          <li id="div-button" class=""  style="padding:5px; width:20%">
+		                <a href="#" data-toggle="tab" aria-expanded="true" item ="chart-container1" class="chart-container1">5 Days</a>
+		          </li>
+		          <li id="div-button" class=""  style="padding:5px; width:20%">
+		                <a href="#" data-toggle="tab" aria-expanded="true" item ="chart-container2" class="chart-container2">1 Month</a>
+		          </li>
+		           <li id="div-button" class=""  style="padding:5px; width:20%">
+		                <a href="#" data-toggle="tab" aria-expanded="true" item ="chart-container3" class="chart-container3">5 Months</a>
+		          </li>
+		           <li id="div-button" class=""  style="padding:5px; width:20%">
+		                <a href="#" data-toggle="tab" aria-expanded="true" item ="chart-container4" class="chart-container4">1 Year</a>
+		          </li>
+		      </ul>
+	        </nav>
+	    </div>
+		<div class="container my-container" ng-app="myApp" ng-controller="myCtrl" >
+			<div class="stock-rate hidden col-sm-2">
+				<h4>{{current_price}}</h4>
+				<div class="col-sm-12" style="display:-webkit-inline-box;"><div class="crement"></div>{{stock_rate}}</div>
+			</div>
+			<div class="col-sm-10 content" id="chart-container">FusionCharts XT will load here!</div>
+			<div class="col-sm-10 hidden content" id="chart-container1">FusionCharts XT will load here!</div>
+			<div class="col-sm-10 hidden content" id="chart-container2">FusionCharts XT will load here!</div>
+			<div class="col-sm-10 hidden content" id="chart-container3">FusionCharts XT will load here!</div>
+			<div class="col-sm-10 hidden content" id="chart-container4">FusionCharts XT will load here!</div>
+		</div>
+	</body>
+
+	<script>
+		FusionCharts.ready(function(){
+			change_value(); //Set the value for the data
+		});
+		//Menu navigation
+		$("nav .nav-pills li a").click(function(){
+		  var id = $(this).attr("item");
+		  $(".content").addClass("hidden");
+		  $("#"+id).removeClass("hidden");
+		});
+	</script>
+</html>
